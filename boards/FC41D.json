@@ -23,8 +23,8 @@
             "firmwarePath": "F01DR01/ql_out/"
         },
         "script": {
-            "windows": "${platformDir}/tools/bk/bk_loader/bk_loader.exe download -p ${uploadPort} -b ${downloadBaudrate} -i ${firmware}",
-            "linux": "chmod 777 ${platformDir}/tools/bk/bk_loader/bk_loader && sudo ${platformDir}/tools/bk/bk_loader/bk_loader download -p ${uploadPort} -b ${downloadBaudrate} -i ${firmware}"
+            "windows": "${platformDir}/tools/beken/bk_loader/bk_loader.exe download -p ${uploadPort} -b ${downloadBaudrate} -i ${firmware}",
+            "linux": "chmod 777 ${platformDir}/tools/beken/bk_loader/bk_loader && sudo ${platformDir}/tools/bk/bk_loader/bk_loader download -p ${uploadPort} -b ${downloadBaudrate} -i ${firmware}"
         }
     },
     "information": {
