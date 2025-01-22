@@ -26,7 +26,7 @@
         },
         "script": {
             "windows": "${platformDir}/tools/beken/bk_loader/bk_loader.exe download -p ${uploadPort} -b ${downloadBaudrate} -i ${firmware}",
-            "linux": "chmod 777 ${platformDir}/tools/beken/bk_loader/bk_loader && sudo ${platformDir}/tools/bk/bk_loader/bk_loader download -p ${uploadPort} -b ${downloadBaudrate} -i ${firmware}"
+            "linux": "chmod 777 ${platformDir}/tools/beken/bk_loader/bk_loader && sudo ${platformDir}/tools/beken/bk_loader/bk_loader download -p ${uploadPort} -b ${downloadBaudrate} -i ${firmware}"
         }
     },
     "information": {
@@ -115,12 +115,12 @@
                     "4800",
                     "9600",
                     "14400",
-                    "19200\n",
+                    "19200",
                     "28800",
                     "33600",
                     "38400",
                     "57600",
-                    "115200\n",
+                    "115200",
                     "230400",
                     "460800",
                     "921600",
