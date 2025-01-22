@@ -15,7 +15,7 @@
         },
         "script": {
             "windows": "build.bat new FCM360W ${firmware} ${version}",
-            "linux": "chmod 777 build.sh && ./build.sh new FCM360W ${firmware} ${version}"
+            "linux": "chmod 777 build.sh ql_kernel/Boards/ecr6600/standalone/make_ota_diff.sh ql_tools/scripts/bin/trstool/trstool ql_tools/scripts/bin/makeone_tool/makeone ql_tools/scripts/bin/ota_tool/ota_tool && ./build.sh new FCM360W ${firmware} ${version}"
         }
     },
     "upload": {
@@ -26,7 +26,7 @@
         },
         "script": {
             "windows": "${platformDir}/tools/eswin/flashtool/EswinFlashTool.exe -p ${uploadPort} -b ${downloadBaudrate} -f ${firmware}",
-            "linux": "chmod 777 ${platformDir}/tools/eswin/flashtool/trstool && ${platformDir}/tools/eswin/flashtool/trstool flash -d ${uploadPort} --download_baudrate ${downloadBaudrate} -f ${firmware}"
+            "linux": "chmod 777 ${platformDir}/tools/eswin/flashtool/trstool && ${platformDir}/tools/eswin/flashtool/trstool flash -d /dev/ttyUSB${uploadPort} --download_baudrate ${downloadBaudrate} -f ${firmware}"
         }
     },
     "information": {
@@ -104,12 +104,12 @@
                     "4800",
                     "9600",
                     "14400",
-                    "19200",
+                    "19200\n",
                     "28800",
                     "33600",
                     "38400",
                     "57600",
-                    "115200",
+                    "115200\n",
                     "230400",
                     "460800",
                     "921600",
