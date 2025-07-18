@@ -8,7 +8,7 @@
         "Quectel"
     ],
     "build": {
-        "path": "Code/",
+        "path": "./",
         "default": {
             "firmware": "FGM842DAA",
             "version": "V01"
@@ -22,7 +22,7 @@
         "default": {
             "downloadBaudrate": 921600,
             "frimware": "all_2M.1220.bin",
-            "firmwarePath": "Code/ql_out/"
+            "firmwarePath": "./ql_out/"
         },
         "script": {
             "windows": "${platformDir}/tools/beken/bk_loader/bk_loader.exe download -p ${uploadPort} -b ${downloadBaudrate} -i ${firmware}",
