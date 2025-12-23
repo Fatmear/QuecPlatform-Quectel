@@ -1,0 +1,366 @@
+{
+    "name": "HCM111Z",
+    "description": "Quectel OpenCPU",
+    "frameworks": [
+        "CSDK"
+    ],
+    "platform": "Quectel",
+    "build": {
+        "path": "quectel_demo/ql_ble_peripheral_demo/gcc/",
+        "default": {
+            "firmware": "HCM111ZAA",
+            "version": "V01"
+        },
+        "script": {
+            "windows": "make",
+            "linux": "echo LINUX IS NOT SUPPORT"
+        }
+    },
+    "upload": {
+        "default": {
+            "downloadBaudrate": 921600,
+            "frimware": "ql_ble_peripheral_demo.bin",
+            "firmwarePath": "quectel_demo/ql_ble_peripheral_demo/gcc/build/"
+        },
+        "script": {
+            "windows": "${platformDir}/tools/freqchip/flash_tool/freqchip_flash_tool.exe -download -p COM${uploadPort} -file ${firmware} -b ${downloadBaudrate} -t 5",
+            "linux": "echo LINUX IS NOT SUPPORT"
+        }
+    },
+    "information": {
+        "core": "ARM",
+        "mcu": "FR8016",
+        "f_cpu": "48MHz",
+        "ram": "48KB",
+        "flash": "512KB",
+        "available_ram_size": "33KB",
+        "available_flash_size": "139KB",
+        "operating_system": "FreeRTOS",
+        "partition": {
+            "application_a": {
+                "description": "Application A",
+                "start_address": "0x000000",
+                "length": "0x3C000"
+            },
+            "application_b": {
+                "description": "Application B",
+                "start_address": "0x3C000",
+                "length": "0x3C000"
+            },
+            "reserve": {
+                "description": "Reserve",
+                "start_address": "0x78000",
+                "length": "0x4000"
+            },
+            "quectel_param": {
+                "description": "Quectel param",
+                "start_address": "0x7C000",
+                "length": "0x1000"
+            },
+            "ble_bond_information": {
+                "description": "BLE bond information",
+                "start_address": "0x7D000",
+                "length": "0x1000"
+            },
+            "ble_peer_information": {
+                "description": "BLE peer information",
+                "start_address": "0x7E000",
+                "length": "0x1000"
+            },
+            "jump_table_static_key": {
+                "description": "Jump table static key",
+                "start_address": "0x7F000",
+                "length": "0x1000"
+            }
+        },
+        "peripheral": {
+            "UART_INFO": {
+                "num": 2,
+                "port": {
+                    "UART0": {
+                        "description": "download/user",
+                        "TX": 19,
+                        "RX": 18
+                    },
+                    "UART1": {
+                        "description": "DBG",
+                        "TX": 4,
+                        "RX": "NA"
+                    }
+                },
+                "baudrate": [
+                    "2400",
+                    "4800",
+                    "9600",
+                    "14400",
+                    "19200\n",
+                    "28800",
+                    "33600",
+                    "38400",
+                    "57600",
+                    "115200\n",
+                    "230400",
+                    "460800",
+                    "921600",
+                    "1000000",
+                    "1843200",
+                    "2000000"
+                ]
+            },
+            "SWD_INFO": {
+                "num": 1,
+                "port": {
+                    "SWD": {
+                        "description": "SWD",
+                        "SWDIO": 4,
+                        "SWCLK": 5
+                    }
+                }
+            },
+            "SPI_INFO": {
+                "num": 1,
+                "port": {
+                    "SPI0": {
+                        "description": "SPI0",
+                        "CS": 11,
+                        "CLK": 12,
+                        "MISO": 8,
+                        "MOSI": 7
+                    }
+                },
+                "mode": {
+                    "master": {
+                        "description": "master mode",
+                        "maximum_clock": "24000000L"
+                    }
+                }
+            },
+            "I2C_INFO": {
+                "attention": "Reserve 1 to 10 kΩ resistance to connect the I2C port to the VBAT.",
+                "num": 2,
+                "port": {
+                    "I2C0": {
+                        "description": "I2C0",
+                        "sda": 10,
+                        "scl": 12
+                    },
+                    "I2C1": {
+                        "description": "I2C1",
+                        "sda": 8,
+                        "scl": 7
+                    }
+                },
+                "mode": {
+                    "master": {
+                        "description": "master mode"
+                    },
+                    "slave": {
+                        "description": "slave mode"
+                    }
+                }
+            },
+            "PWM_INFO": {
+                "num": 6,
+                "port": {
+                    "PWM0": 20,
+                    "PWM1": 22,
+                    "PWM2": 18,
+                    "PWM3": 19,
+                    "PWM4": 15,
+                    "PWM5": 21
+                },
+                "duty_cycle": "0-100%"
+            },
+            "ADC_INFO": {
+                "attention": "In order to improve the accuracy of ADC interface voltage measurement, ADC interface needs ground processing during wiring.",
+                "num": 4,
+                "port": {
+                    "ADC0": 15,
+                    "ADC1": 21,
+                    "ADC2": 20,
+                    "ADC3": 22                    
+                },
+                "resolution": "10bit",
+                "input_voltage_range": "0-3.3V"
+            },
+            "LED_INFO": {
+                "num": 1,
+                "port": {
+                    "LED0": 17                  
+                },
+                "description": "Control LED"
+            },
+            "Analog_Audio_INFO": {
+                "num": 2,
+                "INPUT": {
+                    "MIC_IN": 6                  
+                },
+                "OUTPUT": {
+                    "SPK1_P": 13,
+                    "SPK1_N": 14                  
+                }
+            },
+            "GPIO_INFO": {
+                "num": 13
+            },
+            "GPIO1": {
+                "pin": 4,
+                "AF": [
+                    "PC7",
+                    "I2C1_SDA",
+                    "PWM5",
+                    "UART0_TXD",
+                    "SWDIO",
+                    "SPI_MISO"
+                ]
+            },
+            "GPIO2": {
+                "pin": 5,
+                "AF": [
+                    "PC6",
+                    "I2C1_SCL",
+                    "PWM4",
+                    "UART0_RXD",
+                    "UART1_RXD",
+                    "SWCLK",
+                    "SPI_MOSI"
+                ]
+            },
+            "GPIO3": {
+                "pin": 7,
+                "AF": [
+                    "PA6",
+                    "I2C1_SCL",
+                    "PWM0",
+                    "UART0_RXD",
+                    "UART1_RXD",
+                    "CLK_OUT",
+                    "SPI_MOSI"
+                ]
+            },
+            "GPIO4": {
+                "pin": 8,
+                "AF": [
+                    "PA7",
+                    "I2C1_SDA",
+                    "PWM1",
+                    "UART0_TXD",
+                    "UART1_TXD",
+                    "ANT_CTL0",
+                    "SPI_MISO"
+                ]
+            },
+            "GPIO5": {
+                "pin": 10,
+                "AF": [
+                    "PA1",
+                    "I2C0_SDA",
+                    "PWM1",
+                    "UART0_TXD",
+                    "UART1_TXD",
+                    "ANT_CTL0",
+                    "SPI_CS"
+                ]
+            },
+            "GPIO6": {
+                "pin": 11,
+                "AF": [
+                    "PC5",
+                    "I2C0_SDA",
+                    "PWM5",
+                    "UART0_TXD",
+                    "UART1_TXD",
+                    "SPI_CS"
+                ]
+            },
+            "GPIO7": {
+                "pin": 12,
+                "AF": [
+                    "PA0",
+                    "I2C0_SCL",
+                    "PWM0",
+                    "UART0_RXD",
+                    "UART1_RXD",
+                    "CLK_OUT",
+                    "SPI_CLK"
+                ]
+            },
+            "GPIO8": {
+                "pin": 15,
+                "AF": [
+                    "PD4",
+                    "I2C0_SCL",
+                    "PWM4",
+                    "UART0_RXD",
+                    "UART1_RXD",
+                    "ADC0",
+                    "ANT_CTL0",
+                    "SPI_CLK"
+                ]
+            },
+            "GPIO9": {
+                "pin": 20,
+                "AF": [
+                    "PD6",
+                    "I2C1_SCL",
+                    "PWM0",
+                    "UART0_RXD",
+                    "UART1_RXD",
+                    "ADC2",
+                    "CLK_OUT",
+                    "SPI_MOSI"
+                ]
+            },
+            "GPIO10": {
+                "pin": 21,
+                "AF": [
+                    "PD5",
+                    "I2C0_SDA",
+                    "PWM5",
+                    "UART0_TXD",
+                    "UART1_TXD",
+                    "ADC1",
+                    "ANT_CTL0",
+                    "SPI_CS"
+                ]
+            },
+            "GPIO11": {
+                "pin": 22,
+                "AF": [
+                    "PD7",
+                    "I2C1_SDA",
+                    "PWM1",
+                    "UART0_TXD",
+                    "UART1_TXD",
+                    "ADC3",
+                    "ANT_CTL1",
+                    "SPI_MISO"
+                ]
+            },
+            "UART0_TXD": {
+                "pin": 19,
+                "AF": [
+                    "PA3",
+                    "I2C1_SDA",
+                    "PWM3",
+                    "UART1_TXD",
+                    "ANT_CTL1"
+                ]
+            },
+            "UART0_RXD": {
+                "pin": 18,
+                "AF": [
+                    "PA2",
+                    "I2C1_SCL",
+                    "PWM2",
+                    "UART1_RXD",
+                    "ANT_CTL0"
+                ]
+            }
+        }
+    },
+    "repository": "https://github.com/quectel-official/H01Z_R01.git",
+    "more_information": "https://short-range.quectel.com/downloads",
+    "url": "https://www.quectel.com.cn/",
+    "vendor": "Quectel"
+}
