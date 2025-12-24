@@ -364,8 +364,9 @@
             }
         }
     },
-    "repository": "https://git-master.quectel.com/wifi.bt/fc4x.git",
+    "repository": "https://github.com/quectel-official/FC01D.git",
     "more_information": "https://short-range.quectel.com/downloads",
     "url": "https://www.quectel.com.cn/",
     "vendor": "Quectel"
 }
+
