@@ -411,7 +411,7 @@
             }
         }
     },
-    "repository": "https://git-master.quectel.com/wifi.bt/fcm360w.git",
+    "repository": "https://github.com/quectel-official/FCM360W.git",
     "more_information": "https://short-range.quectel.com/downloads",
     "url": "https://www.quectel.com.cn/",
     "vendor": "Quectel"
